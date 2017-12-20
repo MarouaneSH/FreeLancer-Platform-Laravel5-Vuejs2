@@ -1,0 +1,25 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+//Btnn css
+@import "bttn";
+@import "node_modules/ionicons/dist/scss/ionicons";
+
+*{
+    font-family: $font-family-sans-serif;
+}
+a:hover{
+    color: inherit;
+    text-decoration: unset;
+}
+body
+{
+    background-color: #f5f5f5;
+}
