@@ -1,4 +1,14 @@
 @import "app";
+@font-face {
+	font-family: "Daniel";
+    src: url("fonts/Daniel-Regular.otf") format("otf")
+}
+@font-face {
+    font-family: "Daniel";
+    font-weight: bold;
+    src: url("fonts/Daniel-Bold.otf") format("otf")
+}
+
 .main-bg
 {
     height: 100vh;
@@ -82,18 +92,21 @@
 }
 
 .feature-freelance{
-    .bg-img{
-        position: relative;
-        &::after{
-            content: "";
-            opacity: 0.6;
-            width: 100%;
-            height: 100%; 
-            position: absolute;
-            top: 0;
-            background: rgb(40, 69, 134)
-        }
-    }   
+    padding: 0;
+    box-shadow: -11px -1px 6px rgba(0,0,0,0.16), -1px -8px 6px rgba(0,0,0,0.23);
+  
+    background-size: cover;
+    background-position: right;
+    position: relative;
+    &::before{
+        content: "";
+        opacity: 0.6;
+        width: 100%;
+        height: 100%; 
+        position: absolute;
+        top: 0;
+        background: rgb(40, 69, 134)
+    }
     h4{
         position: absolute;
         top: 0;
@@ -103,8 +116,118 @@
         right: 0;
         font-weight: bold;
         margin: auto;
-        top: 150px;
+        top: 40%;
         text-align: center;
         text-transform: uppercase;
+        button 
+        {
+            font-size: 30px;
+            margin: 0 auto;
+            margin-top: 20px;
+            a{
+                color: white;         
+            }
+    }
+    }
+}
+.last-freelacner
+{
+   
+    box-shadow: 2px 2px;
+    box-shadow: 0px -8px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align: center;
+    .freelancer-list{
+            padding-top: 4px;
+    }
+    .freelance-img{
+        border-radius: 100%;
+        width: 60px;
+        height: 60px;
+    }
+    .freelancer-info{
+        text-align: left;   
+        p{
+            margin: 0;
+    
+        }
+    }
+    .single-freelance:not(:last-child){
+        border-bottom: solid 2px rgba(0, 0, 0, 0.08);;           
+    }
+    .single-freelance{
+        background: white;
+        padding: 15px 0; 
+        &:hover{
+            transition: all .2s ease-in;
+            transform: scale(1.08) translateZ(0);
+            z-index: 2;
+            backface-visibility: hidden;
+            color: white;
+            background: #38a0e4;
+        }
+        .freelancer-info{
+            .info{
+                display: flex;
+                align-items: center;
+                span{
+                    margin-left: 5px;
+                }
+                i{
+                    font-size: 25px;
+                }
+            }
+         }
+    }
+    
+}
+
+footer{
+    .logo
+    {
+        font-family: Daniel;
+    }
+    background: #38a0e4;
+    padding: 50px 0;
+    color: white;
+    margin-top: 50px;
+    .top-footer{
+        border-bottom: 2px solid #ffffffc2;
+        padding: 15px;
+    }
+    .bottom-footer{
+        margin-top: 10px;   
+    }
+    .footer-nav{
+        padding-top: 20px;
+    }
+    .nav
+    {
+        margin-top: 20px;
+        display: inline;
+        margin-top: 20px;
+        margin-bottom: 50px;
+       li{
+           display: inline;
+           &:not(:last-child){
+            margin-right: 25px;
+           }
+       }
+        a{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+    .social a
+    {
+        font-size: 40px;
+        color: white;
+        padding: 0;
+        margin: 0;
+        padding-right: 5px;
+        i{
+            padding: 0;
+            margin: 0;
+        }
     }
 }

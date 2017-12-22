@@ -146,22 +146,157 @@
             </div>
         </div>
     </section>
-    <section class="freelancer mt-5">
+    <section class="freelancer m-5">
         <div class="freelancer-wrapper">
             <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
-                    sdsd
+                <div class="col-6 last-freelacner">
+                   <div class="freelancer-list ">
+                        <div class="single-freelance row">
+                            <div class="col-md-2">
+                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
+                            </div>
+                            <div class="col-md-6 freelancer-info">
+                                <p class="lead">Hello This is my Biographie</p>
+                                <div class="info">
+                                      <i class="ion-ios-navigate-outline"></i>
+                                       <span> Agadir, Morocco </span>
+                                </div>
+                                <div class="info">
+                                    <i class="ion-ios-star-outline"></i>
+                                    <span>Rating 4.5/5 </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
+                                        <a href="">Hire now</a>
+                                    </button>
+                            </div>
+                        </div>
+                        <div class="single-freelance row">
+                            <div class="col-md-2">
+                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
+                            </div>
+                            <div class="col-md-6 freelancer-info">
+                                <p class="lead">Hello This is my Biographie</p>
+                                <div class="info">
+                                      <i class="ion-ios-navigate-outline"></i>
+                                       <span> Agadir, Morocco </span>
+                                </div>
+                                <div class="info">
+                                    <i class="ion-ios-star-outline"></i>
+                                    <span>Rating 4.5/5 </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
+                                        <a href="">Hire now</a>
+                                    </button>
+                            </div>
+                        </div>
+                        <div class="single-freelance row">
+                            <div class="col-md-2">
+                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
+                            </div>
+                            <div class="col-md-6 freelancer-info">
+                                <p class="lead">Hello This is my Biographie</p>
+                                <div class="info">
+                                      <i class="ion-ios-navigate-outline"></i>
+                                       <span> Agadir, Morocco </span>
+                                </div>
+                                <div class="info">
+                                    <i class="ion-ios-star-outline"></i>
+                                    <span>Rating 4.5/5 </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
+                                        <a href="">Hire now</a>
+                                    </button>
+                            </div>
+                        </div>  
+                        <div class="single-freelance row">
+                            <div class="col-md-2">
+                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
+                            </div>
+                            <div class="col-md-6 freelancer-info">
+                                <p class="lead">Hello This is my Biographie</p>
+                                <div class="info">
+                                      <i class="ion-ios-navigate-outline"></i>
+                                       <span> Agadir, Morocco </span>
+                                </div>
+                                <div class="info">
+                                    <i class="ion-ios-star-outline"></i>
+                                    <span>Rating 4.5/5 </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
+                                        <a href="">Hire now</a>
+                                    </button>
+                            </div>
+                        </div>
+                        <div class="single-freelance row">
+                            <div class="col-md-2">
+                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
+                            </div>
+                            <div class="col-md-6 freelancer-info">
+                                <p class="lead">Hello This is my Biographie</p>
+                                <div class="info">
+                                      <i class="ion-ios-navigate-outline"></i>
+                                       <span> Agadir, Morocco </span>
+                                </div>
+                                <div class="info">
+                                    <i class="ion-ios-star-outline"></i>
+                                    <span>Rating 4.5/5 </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
+                                        <a href="">Hire now</a>
+                                    </button>
+                            </div>
+                        </div>
+                      
+                   </div>
                 </div>
-                <div class="col-6 feature-freelance">
-                    <div class="bg-img">
-                         <img src="{{asset('img/freelancer.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                    <h4>Our featured freelancers</h4>
+                <div class="col-6 feature-freelance" style="background-image:url('{{asset('img/freelancer.jpg')}}')">
+                    <h4>
+                        <span>Our featured freelancers</span>
+                        <button class="d-block bttn-slant bttn-lg bttn-warning bttn-no-outline">
+                            <a href="">See More</a>
+                        </button>
+                    </h4>
                 </div>
             </div>
             </div>
         </div>
+    </section>
+
+    <section class="footer">
+        <footer>
+            <div class="container">
+                <div class="top-footer row">
+                    <h4 class="logo">Freelancer.com</h4>
+                </div>
+                <div class="bottom-footer row">
+                    <div class="col-8 footer-nav">            
+                            <ul class="nav navbar-nav">
+                                <li> <a href="#">Login</a> </li>
+                                <li> <a href="#">Sign up</a> </li>
+                                <li> <a href="#">Comment ça marche ?</a> </li>
+                                <li> <a href="#">Contactez-nous</a> </li>  
+                            </ul> 
+                    </div>
+                    <div class="col-4 social text-right">
+                            <a href=""><i class="ion ion-logo-pinterest"></i></a>
+                            <a href=""><i class="ion-logo-facebook"></i></a>
+                            <a href=""><i class="ion-logo-twitter"></i></a>
+                            <a href=""><i class="ion-logo-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </section>
 </body>
 </html>

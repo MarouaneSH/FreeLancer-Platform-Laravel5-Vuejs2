@@ -11,4 +11,7 @@
 |
 */
 
-Route::resource('/','HomeController');
+Route::get('/',"HomeController@index");
+Auth::routes();
+
+
