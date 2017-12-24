@@ -8,8 +8,9 @@ window._ = require('lodash');
  */
 
 try {
+ //   require('popper.js/dist/popper.min.js');
     window.$ = window.jQuery = require('jquery');
-
+    window.Popper = require('popper.js').default;
     require('bootstrap');
 } catch (e) {}
 

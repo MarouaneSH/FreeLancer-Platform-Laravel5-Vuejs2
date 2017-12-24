@@ -1,4 +1,5 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/login.css": "/css/login.css"
+    "/css/modify-profile.css": "/css/modify-profile.css?id=d41d8cd98f00b204e980",
+    "/css/profile.css": "/css/profile.css?id=86af081cfd183d6b4ef3",
+    "/css/home.css": "/css/home.css?id=8a4791cd3eb53727384b"
 }

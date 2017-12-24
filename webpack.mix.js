@@ -11,8 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/login.scss', 'public/css')
-   .options({
-    processCssUrls: false
- });
+mix.sass('resources/assets/sass/modify-profile.scss', 'public/css/') 
+    .sass('resources/assets/sass/profile.scss', 'public/css/') 
+    .sass('resources/assets/sass/home.scss', 'public/css/') 
+    .options({
+        processCssUrls: false
+     });
+
+     
+ if (mix.inProduction()) {
+    mix.version();
+}

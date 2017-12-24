@@ -18,26 +18,52 @@
                 </div>
                 
              </div>
-            <div class="col-8 signup">
-                <div class="signup-wrapper">
+            <div class="col-8 signup" id="app">
+            <div class="row text-right justify-content-end p-3">
+                <p >vous avez déjà un compte ? <a href="{{url('login')}}">s'identifier</a> </p>
+            </div>
+            <div class="signup-wrapper">
+                    @if($errors->any())
+                    <div class="alert alert-warning" role="alert">
+                        <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <h2 >Créer un compte</h2>
-                    <form action="">
+                    <form action="{{url('Signup')}}" method="post">
+                    {{ csrf_field() }}
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="Votre email">
+                            <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="Votre email">
                         </div>
                         <div class="form-group">
                             <label for="">Nom</label>
-                            <input type="Nom" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="Votre Nom">
+                            <input type="text" class="form-control" name="Nom" id="" aria-describedby="emailHelpId" placeholder="Votre Nom">
                         </div>
                         <div class="form-group">
                             <label for="">Prenom</label>
-                            <input type="Prenom" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
+                            <input type="text" class="form-control" name="Prenom" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" name="password" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Repeat Password</label>
+                            <input type="password" class="form-control" name="password_confirmation" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
+                        </div>
+                        <div class="form-group text-center">
+                           <button class="btn-next bttn-pill bttn-md bttn-primary bttn-no-outline">Sign up</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="{{asset('js/app.js')}} "></script>
 </body>
 </html>

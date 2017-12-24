@@ -1,0 +1,159 @@
+@import "app";
+
+.navbar{
+    padding: 20px 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    .nav-link{
+        color: black;
+        font-weight: bold;
+        padding-left: 25px !important;
+        font-size: 15px;
+    }
+}
+#btn-modify{
+    background: #29a69c;
+    font-size: 15px;
+    text-transform: uppercase;
+    a{
+        color: white;
+        &:hover{
+            color: #38a0e4;
+        }
+    }
+}
+.card-title
+{
+    color: #798fa5;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.user-info{
+    display: flex;
+    margin-left: auto;
+    align-items: center;    
+    .img-profile{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    button{
+        background: white;
+        border: none;
+        color: black;
+        &:focus{
+            outline: 0;
+        }
+    }
+}
+.profil-wrapper{
+     font-size: 18px;
+    .card {
+        border:none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+      
+    .user-info{
+        border-top: solid 3px #29a69c;
+        border-radius: 0;
+        h4:nth-child(2){
+            margin-top: 10px;
+            padding-bottom:10px;
+            border-bottom: solid 2px rgb(41, 166, 156);
+        }
+        .img-user{
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 100%;
+        }
+    }
+    .bottom-user-info{
+        margin-top: 20px;
+        i{
+            font-size: 25px;
+        }
+        p{
+            margin: 0;
+            font-size: 15px;
+        }
+        .rating{
+            border-radius: 5px;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            margin: 0;
+        }
+    }
+
+    .biographie{
+        border-top: solid 3px #38a0e4;
+        border-radius: 0;
+        .bio-skill
+        {
+            border-left: solid 1px rgba(46, 73, 107, 0.315);
+        }
+        
+        button{
+            span{
+                font-size: 15px;
+            }
+        }
+
+        .skills{
+            .badge{
+                background: #38a0e4;
+                font-weight: normal;
+            }
+        }
+    }
+    .diploma {
+        margin-top: 30px;
+        border-top: solid 3px #38a0e4;
+        border-radius: 0;
+        padding: 30px 0;
+        .list-diplom{
+            position: relative;
+            &::before{
+                content: "";
+                width: 3px;
+                height: calc(100% - 63px);
+                background: #38a0e4;
+                position: absolute;
+                left: 67px;
+                top: 14px;
+            }
+        }
+        p{
+            font-size: 15px;
+        }
+       
+        .diploma-desc{
+            position: relative;
+            margin-top:20px;
+            width: 75%;
+            margin: 0 auto;
+            i{
+                font-size: 25px;
+                float: left;
+            }
+            p{
+                margin: 0;
+                margin-left: 30px;
+            }
+            .dot{
+                width: 15px;
+                height: 15px;
+                background: #1d89ff;
+                border-radius: 100%;
+                position: absolute;
+                left: -30px;
+                top: 12px;
+            }
+        }
+    }
+}
+
+@import "layout/footer"

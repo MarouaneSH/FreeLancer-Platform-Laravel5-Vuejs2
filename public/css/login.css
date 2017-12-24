@@ -14828,7 +14828,15 @@ body {
 .signup .signup-wrapper {
   width: 60%;
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 60px;
+}
+
+.signup .signup-wrapper h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-align: left;
+  border-bottom: solid 1px rgba(59, 76, 114, 0.5);
+  padding-bottom: 20px;
 }
 
 .signup .signup-wrapper label {
@@ -14838,4 +14846,8 @@ body {
 
 .signup .signup-wrapper input {
   padding: 15px 20px;
+}
+
+.signup .signup-wrapper .btn-next {
+  padding: 10px 100px;
 }
