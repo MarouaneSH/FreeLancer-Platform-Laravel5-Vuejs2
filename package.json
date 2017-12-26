@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "ionicons": "^3.0.0",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.12.9",
+    "sweetalert2": "^7.1.2"
   }
 }

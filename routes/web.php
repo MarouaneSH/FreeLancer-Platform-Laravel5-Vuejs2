@@ -22,8 +22,8 @@ Auth::routes();
 //Porfile route
 Route::prefix('profile')->group(function () {
     Route::get('/',"ProfileController@index");
-    Route::get('/modify',"ProfileController@modify")->name('modifyProfile');
-
+    Route::get('/modify',"ProfileController@modifyPage")->name('modifyProfile');
+    Route::post('/modify/{data}',"ProfileController@modifyProfile");
     Route::post('/logout',"ProfileController@logoutUser")->name('logout');
 });
 

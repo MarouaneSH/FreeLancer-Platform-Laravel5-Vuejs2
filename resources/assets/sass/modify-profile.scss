@@ -1,0 +1,43 @@
+
+@import "~sweetalert2/dist/sweetalert2.min.css";
+.btnModify{
+    background: #00bfa5 !important;
+    color: white;
+    margin-bottom: 10px;
+}
+.biographie {
+    .bio-skill{
+        border: none;
+    }
+}
+.badge-light-modify{
+    background: #00bfa5 !important;
+    cursor: pointer;
+}
+.top-user-info{
+    p{
+        font-size: 15px;
+        margin: 0;
+        margin-top: 10px;
+    }
+}
+.loading{
+    background: black;
+    position: fixed;
+    bottom: 50px;
+    padding: 0;
+    right: 0px;
+    z-index: 9999;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+    display: none;
+    h4{
+        font-size: 15px;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+}
