@@ -1,20 +1,23 @@
 @import "app";
+@import "layout/navbar";
 
-.navbar{
-    padding: 20px 40px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    .nav-link{
-        color: black;
-        font-weight: bold;
-        padding-left: 25px !important;
-        font-size: 15px;
-    }
-}
 #btn-modify{
     background: #29a69c;
-    font-size: 15px;
-    text-transform: uppercase;
+}
+#btn-addMision{
+    background: #ffb74d ;
+}
+.btn-route{
+    button{
+        &::hover{
+            a{
+                color: #38a0e4;
+            }
+        }
+    }
     a{
+        font-size: 12px;
+        text-transform: uppercase;  
         color: white;
         &:hover{
             color: #38a0e4;
@@ -30,26 +33,7 @@
     text-transform: uppercase;
     font-size: 20px;
 }
-.user-info{
-    display: flex;
-    margin-left: auto;
-    align-items: center;    
-    .img-profile{
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        background-size: cover;
-        background-position: center;
-    }
-    button{
-        background: white;
-        border: none;
-        color: black;
-        &:focus{
-            outline: 0;
-        }
-    }
-}
+
 .profil-wrapper{
      font-size: 18px;
     .card {

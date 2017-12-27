@@ -1,4 +1,5 @@
-    <nav class="navbar navbar-expand-sm bg-white">
+{{--  {{dd($user)}}  --}}
+<nav class="navbar navbar-expand-sm bg-white">
             <a class="navbar-brand" href="#">
                 <img src="{{asset('img/logo-bl.png')}} " alt="Logo" style="width:240px;">
             </a>
@@ -18,7 +19,7 @@
                 <div class="img-profile" style="background-image:url('{{asset('img/unknown.png')}}')"></div>
                 <div class="dropdown">
                         <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         {{$user->nom. ' ' .$user->prenom }}
+                         {{Auth::user()->nom. ' ' .Auth::user()->prenom }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">About</a>

@@ -1,0 +1,31 @@
+.navbar{
+    padding: 20px 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    .nav-link{
+        color: black;
+        font-weight: bold;
+        padding-left: 25px !important;
+        font-size: 15px;
+    }
+}
+.user-info{
+    display: flex;
+    margin-left: auto;
+    align-items: center;   
+    margin-right: 37px; 
+    .img-profile{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    button{
+        background: white;
+        border: none;
+        color: black;
+        &:focus{
+            outline: 0;
+        }
+    }
+}

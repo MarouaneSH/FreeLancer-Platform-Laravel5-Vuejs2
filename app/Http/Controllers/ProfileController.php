@@ -7,7 +7,7 @@ use Auth;
 use DB;
 use Storage;
 use Validator;
-
+use View;
 class ProfileController extends Controller
 {
     public function __construct(){
@@ -47,7 +47,6 @@ class ProfileController extends Controller
 
         //Afficher la page profile
         return view('profile.index',[
-            "user"=>$AuthUser,
             "projectRealiser"=> $userProject,
             "userRating" => $userRating,
             "userSkill" => $userSkill,
@@ -87,7 +86,6 @@ class ProfileController extends Controller
 
         //Afficher la page profile
         return view('profile.modify',[
-            "user"=>$AuthUser,
             "projectRealiser"=> $userProject,
             "userRating" => $userRating,
             "userSkill" => $userSkill,
@@ -178,34 +176,74 @@ class ProfileController extends Controller
                 ]);
             }
             else{
+
                 //Chercher dans la table skills if skill deja exist 
-                $countSkill = DB::table('SKILLS')
-                      ->where('skill_name' , '=' , $request->skill)
-                      ->count();
+                $skill = DB::table('SKILLS')
+                             ->select('skill_id')
+                             ->where('skill_name' , '=' , $request->skill)
+                             ->get();
                 
-                       
                 //Si la competence n'exist pas , creer un competence
-                if($countSkill == 0 ){
-                   $d= DB::table('SKILLS')->insert([
-                        'skill_name' => $request->skillName, 
-                        ]);
-                    return response()->json([
-                        "test"=> $d
-                    ]);              
+                if($skill->count() == 0 ){
+                   $insertSkill= DB::table('SKILLS')
+                                 ->insert([
+                                    'skill_name' => $request->skill, 
+                                  ]);
+                    
+                    $skillID = DB::table('SKILLS')
+                               ->select('skill_id')
+                               ->where('skill_name', '=' , $request->skill)
+                               ->get();
+                    $skillID = $skillID[0]->skill_id;
+                                                       
                 }
-               
+                else {
+                    //si la compétence exist 
+                    $skillID =  $skill[0]->skill_id;
+                }
+                
+
+                 //Utilisateur connecté
+                 $utilisateur =Auth::user();
+
+                //ajouter la compétence  a la table user_skill
+                $addUserSkill = DB::table('USER_SKILLS')
+                                   ->insert([
+                                    'skill_id' => $skillID,  
+                                    'user_id' => $utilisateur->id, 
+                                   ]); 
 
 
+                 return response()->json([
+                     "success"=> true,
+                 ]);
+            }
+        }
+        else if($data == "diplome") {
+             
+            $validator = Validator::make($request->all(), [
+                'diplomeName' => 'required|max:255',
+                'annee' => 'required|max:255',
+                'etablissement' => 'required|max:255',
+            ]);
+    
+            if($validator->fails()){
+                return response()->json([
+                    "success"=> false,
+                ]);
+            }
+            else{
                 //Utilisateur connecté
                 $utilisateur =Auth::user();
-                DB::table('users')
-                    ->where('id' ,'=' , $utilisateur->id)
-                    ->update([
-                            'biographie' => $request->biographie,
-                            ]);
+                DB::table('USER_DIPLOMAS')
+                     ->insert([
+                        'user_id' => $utilisateur->id,
+                        'diploma_name' => $request->diplomeName,
+                        'date_diploma' => $request->annee,
+                        'etablissement' => $request->etablissement,
+                     ]);
                   /*ORACLE
-                    update table users set biographie = $request->biographie,
-                                           where id = $utilisateur
+                    insert into USER_DIPLOMAS values ($request->diplomeName,$request->annee,$request->etablissmnet)
                   */
                 
                  return response()->json([

@@ -11,12 +11,15 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown),html.swal2-show
 .badge-light-modify {
   background: #00bfa5 !important;
   cursor: pointer;
+  font-weight: 100;
+  font-size: 12px;
 }
 
 .top-user-info p {
   font-size: 15px;
   margin: 0;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .loading {
@@ -43,4 +46,16 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown),html.swal2-show
   font-size: 15px;
   margin-top: 5px;
   margin-left: 20px;
+}
+
+.user-info .form-control {
+  border: none;
+  border-bottom: solid 2px #00bfa5;
+  border-radius: unset;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.user-info h4:nth-child(2) {
+  border-bottom: solid 1px #413f4e !important;
 }

@@ -25056,211 +25056,46 @@ body {
   background-color: #f6f9fc;
 }
 
-@font-face {
-  font-family: "Daniel";
-  src: url("fonts/Daniel-Regular.otf") format("otf");
+.navbar {
+  padding: 20px 40px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-@font-face {
-  font-family: "Daniel";
+.navbar .nav-link {
+  color: black;
   font-weight: bold;
-  src: url("fonts/Daniel-Bold.otf") format("otf");
+  padding-left: 25px !important;
+  font-size: 15px;
 }
 
-.main-bg {
-  height: 100vh;
-  width: 100%;
-  min-height: 780px;
-  background-size: cover;
-}
-
-.main-bg nav {
-  background: white;
-  position: absolute;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  top: 0;
-  right: 0;
-  padding: 15px 50px;
-  padding-bottom: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  -webkit-box-shadow: 2px 2px;
-          box-shadow: 2px 2px;
-  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-}
-
-.main-bg li {
-  display: inline;
-  padding-right: 20px;
-  /*! padding-bottom: 20px; */
-}
-
-.main-bg ul {
-  list-style: none;
-}
-
-.main-bg svg {
-  margin-top: -5px;
-  margin-left: -1px;
-}
-
-.main-bg .btn-started {
-  position: absolute;
-  top: 350px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 200px;
-  text-transform: uppercase;
-}
-
-.missions-wrapper {
-  position: relative;
-  background: white;
-  padding: 40px 0;
-  margin-top: 21px;
-  -webkit-box-shadow: 2px 2px;
-          box-shadow: 2px 2px;
-  -webkit-box-shadow: 0px -8px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-          box-shadow: 0px -8px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.missions-wrapper::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 50px solid white;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  /* background: white; */
-  top: -50px;
-}
-
-.missions-wrapper .odd {
-  background: whitesmoke;
-}
-
-.missions-wrapper .price {
-  color: #48b18a;
-  font-weight: bolder;
-}
-
-.missions-wrapper .categorie {
-  font-weight: bolder;
-}
-
-.feature-freelance {
-  padding: 0;
-  -webkit-box-shadow: -11px -1px 6px rgba(0, 0, 0, 0.16), -1px -8px 6px rgba(0, 0, 0, 0.23);
-          box-shadow: -11px -1px 6px rgba(0, 0, 0, 0.16), -1px -8px 6px rgba(0, 0, 0, 0.23);
-  background-size: cover;
-  background-position: right;
-  position: relative;
-}
-
-.feature-freelance::before {
-  content: "";
-  opacity: 0.6;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  background: #284586;
-}
-
-.feature-freelance h4 {
-  position: absolute;
-  top: 0;
-  color: white;
-  font-size: 30px;
-  left: 0;
-  right: 0;
-  font-weight: bold;
-  margin: auto;
-  top: 40%;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.feature-freelance h4 button {
-  font-size: 30px;
-  margin: 0 auto;
-  margin-top: 20px;
-}
-
-.feature-freelance h4 button a {
-  color: white;
-}
-
-.last-freelacner {
-  -webkit-box-shadow: 2px 2px;
-          box-shadow: 2px 2px;
-  -webkit-box-shadow: 0px -8px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-          box-shadow: 0px -8px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  text-align: center;
-}
-
-.last-freelacner .freelancer-list {
-  padding-top: 4px;
-}
-
-.last-freelacner .freelance-img {
-  border-radius: 100%;
-  width: 60px;
-  height: 60px;
-}
-
-.last-freelacner .freelancer-info {
-  text-align: left;
-}
-
-.last-freelacner .freelancer-info p {
-  margin: 0;
-}
-
-.last-freelacner .single-freelance:not(:last-child) {
-  border-bottom: solid 2px rgba(0, 0, 0, 0.08);
-}
-
-.last-freelacner .single-freelance {
-  background: white;
-  padding: 15px 0;
-}
-
-.last-freelacner .single-freelance:hover {
-  -webkit-transition: all .2s ease-in;
-  transition: all .2s ease-in;
-  -webkit-transform: scale(1.08) translateZ(0);
-          transform: scale(1.08) translateZ(0);
-  z-index: 2;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  color: white;
-  background: #38a0e4;
-}
-
-.last-freelacner .single-freelance .freelancer-info .info {
+.user-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 37px;
 }
 
-.last-freelacner .single-freelance .freelancer-info .info span {
-  margin-left: 5px;
+.user-info .img-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
-.last-freelacner .single-freelance .freelancer-info .info i {
-  font-size: 25px;
+.user-info button {
+  background: white;
+  border: none;
+  color: black;
+}
+
+.user-info button:focus {
+  outline: 0;
 }
 
 footer {

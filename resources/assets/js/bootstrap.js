@@ -12,6 +12,7 @@ try {
     window.$ = window.jQuery = require('jquery');
     window.Popper = require('popper.js').default;
     require('bootstrap');
+    require ("~mdbootstrap/js/mdb.min.js");
 } catch (e) {}
 
 /**
