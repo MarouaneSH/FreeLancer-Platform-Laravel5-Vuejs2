@@ -113,7 +113,13 @@
 							<div class="col-12 bio-skill">
 								<div class="bio">
 									<i class="ion-md-quote"></i>
-									<span id="biographie">{{Auth::user()->biographie}}</span>
+									<span id="biographie">
+										@isset (Auth::user()->biographie)
+									    	{{Auth::user()->biographie}}
+										@else
+											Modifiez votre biographie	                
+										@endisset
+									</span>
 									<i class="ion-md-quote"></i>
 									<span value="biographie" class="badge badge-light-modify" data-toggle="modal" data-target="#editbiographie">Modifier</span>
 								</div>
@@ -124,9 +130,13 @@
 										<span value="skills" class="badge badge-light-modify" data-toggle="modal" data-target="#addModalSKILLS">AJOUTER</span>
 									</h6>
 									<div class="list-skills">
-										@foreach ($userSkill as $skill)
-										<span class="badge badge-default"> {{$skill->skill_name}} </span>
-										@endforeach
+										@if($userSkill->count())
+											@foreach ($userSkill as $skill)
+												<span class="badge badge-default"> {{$skill->skill_name}} </span>
+											@endforeach
+										@else
+											<span class="badge blue-grey badge-notSkill h6">Ajouter une compétence a votre profile</span>
+										@endif
 									</div>
 								</div>
 							</div>
@@ -138,21 +148,25 @@
 							<span value="diplome" class="badge badge-light-modify" data-toggle="modal" data-target="#addModalDiploma">AJOUTER</span>
 						</h6>
 						<div class="list-diplom">
-							@foreach ($userDiploma as $diplom)
-								<div class="diploma-desc">
-										<div class="dot"></div>
-										<i class="ion-ios-briefcase"></i>
-										<p class="diploma-title">
-											<strong>{{$diplom->diploma_name}} </strong>
-										</p>
-										<p class="lead">
-												{{$diplom->date_diploma}}
-										</p>
-										<p class="lead">
-											{{$diplom->etablissement}}
-										</p>
-									</div>
-							@endforeach
+							@if($userDiploma->count())
+								@foreach ($userDiploma as $diplom)
+									<div class="diploma-desc">
+											<div class="dot"></div>
+											<i class="ion-ios-briefcase"></i>
+											<p class="diploma-title">
+												<strong>{{$diplom->diploma_name}} </strong>
+											</p>
+											<p class="lead">
+													{{$diplom->date_diploma}}
+											</p>
+											<p class="lead">
+												{{$diplom->etablissement}}
+											</p>
+										</div>
+								@endforeach
+							@else
+								<h5 class="text-muted text-center">Vous n'avez aucun diplome</h5>
+					    	 @endif
 						</div>
 					</div>
 				</div>

@@ -13,13 +13,17 @@ class ProfileController extends Controller
     public function __construct(){
     }
 
-    public function index($idUser){
+    public function index($idUser =null){
 
-        //Utilisateur connecté
-        $AuthUser= DB::table("users")
+        if($idUser){
+            $AuthUser= DB::table("users")
                     ->where('id',$idUser)
                     ->first();
-
+        }
+        else{
+            $AuthUser=Auth::user();
+        }
+        
         //Récupérer le nombre des missions réalisé par cet utilisateur
          $userProject = DB::table('MISSION_USERS')
                         ->where('USER_ID',$AuthUser->id)

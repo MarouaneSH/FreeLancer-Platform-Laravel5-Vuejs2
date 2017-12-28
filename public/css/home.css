@@ -25146,27 +25146,29 @@ span.badge {
 }
 
 .main-bg nav {
-  background: white;
   position: absolute;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
   top: 0;
   right: 0;
   padding: 15px 50px;
   padding-bottom: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  -webkit-box-shadow: 2px 2px;
-          box-shadow: 2px 2px;
-  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  font-weight: normal;
+  width: auto;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: none;
 }
 
 .main-bg li {
   display: inline;
-  padding-right: 20px;
-  /*! padding-bottom: 20px; */
+  padding-right: 5px;
+}
+
+.main-bg li:hover {
+  background: none;
+}
+
+.main-bg li a:hover {
+  background: none;
 }
 
 .main-bg ul {
@@ -25178,14 +25180,29 @@ span.badge {
   margin-left: -1px;
 }
 
+.main-bg .typed {
+  font-family: 'Daniel';
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  top: 260px;
+  position: absolute;
+  font-size: 25px;
+}
+
 .main-bg .btn-started {
   position: absolute;
-  top: 350px;
+  top: 320px;
   left: 0;
   right: 0;
   margin: auto;
   width: 200px;
   text-transform: uppercase;
+  color: #31363f !important;
 }
 
 .missions-wrapper {
@@ -25199,19 +25216,18 @@ span.badge {
           box-shadow: 0px -8px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.missions-wrapper::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 50px solid white;
+.missions-wrapper .card-mission {
+  width: 50%;
   position: absolute;
+  top: -41px;
+  border-radius: 0;
+  margin: auto;
   left: 0;
   right: 0;
-  margin: auto;
-  /* background: white; */
-  top: -50px;
+  text-transform: uppercase;
+  font-size: 20px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .missions-wrapper .odd {
@@ -25260,17 +25276,14 @@ span.badge {
   text-transform: uppercase;
 }
 
-.feature-freelance h4 button {
-  font-size: 30px;
-  margin: 0 auto;
-  margin-top: 20px;
-}
-
-.feature-freelance h4 button a {
-  color: white;
+.feature-freelance h4 a {
+  width: 150px;
+  margin: auto;
+  margin-top: 18px;
 }
 
 .last-freelacner {
+  background: white;
   -webkit-box-shadow: 2px 2px;
           box-shadow: 2px 2px;
   -webkit-box-shadow: 0px -8px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -25303,6 +25316,7 @@ span.badge {
 .last-freelacner .single-freelance {
   background: white;
   padding: 15px 0;
+  margin: 0;
 }
 
 .last-freelacner .single-freelance:hover {

@@ -60,6 +60,9 @@ function modifyUserBiographie(){
 }
 
 function addUserSkill(){
+    //remove badge aucun Skill if exist
+    var badgeNotSkill = document.querySelector(".badge-notSkill");
+    badgeNotSkill.remove();
     var fomUserinfo = document.querySelector('#addSkillsForm');
     var formData  = new FormData(fomUserinfo);
     $loading.style.display = "flex";

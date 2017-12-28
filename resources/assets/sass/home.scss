@@ -16,26 +16,30 @@
     min-height: 780px;
     background-size: cover;
     nav{
-        background: white;
         position: absolute;
-        border-bottom-right-radius: 50px;
-        border-bottom-left-radius: 50px;
         top: 0;
         right: 0;
         padding: 15px 50px;
         padding-bottom: 10px;
-        font-weight: bold;
-        text-transform: uppercase;
-        box-shadow: 2px 2px;
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        font-weight: normal;
+        width: auto;
+        box-shadow: none;
+        background: none;
+        
     }
     
     
     li {
       display: inline;
-      padding-right: 20px;
-      /*! padding-bottom: 20px; */
+      padding-right: 5px;
+      &:hover{
+          background: none;
+      }
+      a{
+          &:hover{
+            background: none;
+        }
+      }
     }
     ul{
         list-style: none;
@@ -44,15 +48,30 @@
         margin-top: -5px;
         margin-left: -1px;
     }
+
+    .typed{
+        font-family:'Daniel';
+        color: white;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        top:260px;
+        position: absolute;
+        font-size: 25px
+    }
     .btn-started
     {
         position: absolute;
-        top: 350px;
+        top: 320px;
         left: 0;
         right: 0;
         margin: auto;
         width: 200px;
         text-transform: uppercase;
+        color: rgb(49, 54, 63) !important;
     }
 }
 .missions-wrapper
@@ -63,19 +82,18 @@
     margin-top: 21px;
     box-shadow: 2px 2px;
     box-shadow: 0px -8px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    &::before{
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 50px solid transparent;
-        border-right: 50px solid transparent;
-        border-bottom: 50px solid white;
+    
+    .card-mission{
+        width: 50%;
         position: absolute;
+        top: -41px;
+        border-radius: 0;
+        margin: auto;
         left: 0;
         right: 0;
-        margin: auto;
-        /* background: white; */
-        top: -50px;
+        text-transform: uppercase;
+        font-size: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }
     .odd
     {
@@ -119,20 +137,16 @@
         top: 40%;
         text-align: center;
         text-transform: uppercase;
-        button 
-        {
-            font-size: 30px;
-            margin: 0 auto;
-            margin-top: 20px;
-            a{
-                color: white;         
-            }
-    }
+        a{
+            width: 150px;
+            margin: auto;
+            margin-top: 18px;
+        }
     }
 }
 .last-freelacner
 {
-   
+   background: white;
     box-shadow: 2px 2px;
     box-shadow: 0px -8px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     text-align: center;
@@ -157,6 +171,7 @@
     .single-freelance{
         background: white;
         padding: 15px 0; 
+        margin: 0;
         &:hover{
             transition: all .2s ease-in;
             transform: scale(1.08) translateZ(0);

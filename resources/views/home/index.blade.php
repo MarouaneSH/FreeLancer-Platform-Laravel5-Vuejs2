@@ -17,19 +17,22 @@
                     <li><a href="">How it works ?</a> </li>
                 </ul>
             </nav>
-           <button class="btn-started bttn-material-flat bttn-lg bttn-default bttn-no-outline">
-            <a href="" >
+            <span class="typed"></span>
+            <a href="{{url('Signup')}} " class="btn-started black-text white waves-effect waves-light btn" >
                Get started
             </a>
-            </button> 
         </div>
     </div>
     <section class="missions">
         <div class="container">
             <div class="missions-wrapper text-center">
-                <h2>OUR LAST MISSIONS </h2>
+                    <div class="card card-mission light-blue darken-2 white-text">
+                            <div class="card-content white-text">
+                              <span class="card-title">NOS DERNIÈRE MISSION</span>
+                            </div>
+                    </div>
                 <div class="last-missions">
-                    <table class="table mt-4">
+                    <table class="table mt-4 centered highlight">
                         <thead>
                             <tr>
                             <th scope="col">MISISON</th>
@@ -41,103 +44,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">Application Mobile </th>
-                                <td>
-                                    <span>Distance</span>
-                                </td>
-                                <td class="categorie">
-                                   <span> Web</span>
-                                </td>
-                                <td>5</td>
-                                <td class="price">600 DH</td>
-                                <td>
-                                    <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Voir mission</a>
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd">
-                                <th scope="row">Application Mobile </th>
-                                <td>
-                                    <span>Distance</span>
-                                </td>
-                                <td class="categorie">
-                                   <span> IT & Resaux </span>
-                                </td>
-                                <td>5</td>
-                                <td class="price">600 DH</td>
-                                <td>
-                                    <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Voir mission</a>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Application Mobile </th>
-                                <td>
-                                    <span>Distance</span>
-                                </td>
-                                <td class="categorie">
-                                   <span> Design </span>
-                                </td>
-                                <td>5</td>
-                                <td class="price">600 DH</td>
-                                <td>
-                                    <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Voir mission</a>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd">
-                                <th scope="row">Application Mobile </th>
-                                <td>
-                                    <span>Distance</span>
-                                </td>
-                                <td class="categorie">
-                                   <span> Développement Mobile </span>
-                                </td>
-                                <td>5</td>
-                                <td class="price">600 DH</td>
-                                <td>
-                                    <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Voir mission</a>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Application Mobile </th>
-                                <td>
-                                    <span>Distance</span>
-                                </td>
-                                <td class="categorie">
-                                   <span> Mobile </span>
-                                </td>
-                                <td>5</td>
-                                <td class="price">600 DH</td>
-                                <td>
-                                    <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Voir mission</a>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd">
-                                <th scope="row">Application Mobile </th>
-                                <td>
-                                    <span>Distance</span>
-                                </td>
-                                <td class="categorie">
-                                   <span> Développement Mobile </span>
-                                </td>
-                                <td>5</td>
-                                <td class="price">600 DH</td>
-                                <td>
-                                    <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Voir mission</a>
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach ($missions as $mission)
+                                    <tr>
+                                        <th scope="row">{{$mission->titre_mission}} </th>
+                                        <td>
+                                            <span>{{$mission->type_mission}}</span>
+                                        </td>
+                                        <td class="categorie">
+                                         @php
+                                             $categorie = DB::table('categories')->where('categorie_id','=',$mission->categorie_id)->first();  
+                                         @endphp
+                                        <span> {{$categorie->categorie_name}} </span>
+                                        </td>
+                                        <td>5</td>
+                                        <td class="price">{{$mission->min_budget}} - {{$mission->max_budget}} DH</td>
+                                        <td>
+                                            <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
+                                                <a href="{{route('singleMission',$mission->mission_id)}} ">Voir mission</a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                            @endforeach
 
                         </tbody>
                   </table>
@@ -151,120 +78,45 @@
             <div class="row">
                 <div class="col-6 last-freelacner">
                    <div class="freelancer-list ">
+                        @foreach ($users as $user)
                         <div class="single-freelance row">
                             <div class="col-md-2">
-                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
+                               <img src="{{asset($user->image)}}" class="img-fluid freelance-img" alt="">                               
                             </div>
                             <div class="col-md-6 freelancer-info">
-                                <p class="lead">Hello This is my Biographie</p>
+                                <p class="lead">{{$user->biographie}} </p>
                                 <div class="info">
                                       <i class="ion-ios-navigate-outline"></i>
-                                       <span> Agadir, Morocco </span>
+                                       <span> {{$user->location}} </span>
                                 </div>
                                 <div class="info">
                                     <i class="ion-ios-star-outline"></i>
-                                    <span>Rating 4.5/5 </span>
+                                    @php
+                                        $userRating = DB::table('USER_RATINGS')
+                                        ->where('rated_user',$user->id)
+                                        ->avg('vote');  
+                                    @endphp
+                                    @if($userRating)
+                                           <span>  {{ number_format($userRating,1 )}} </span>
+                                    @else
+                                         <span>  1.0 </span>                                    
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Hire now</a>
+                                        <a href="">Voir Profile</a>
                                     </button>
                             </div>
                         </div>
-                        <div class="single-freelance row">
-                            <div class="col-md-2">
-                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
-                            </div>
-                            <div class="col-md-6 freelancer-info">
-                                <p class="lead">Hello This is my Biographie</p>
-                                <div class="info">
-                                      <i class="ion-ios-navigate-outline"></i>
-                                       <span> Agadir, Morocco </span>
-                                </div>
-                                <div class="info">
-                                    <i class="ion-ios-star-outline"></i>
-                                    <span>Rating 4.5/5 </span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Hire now</a>
-                                    </button>
-                            </div>
-                        </div>
-                        <div class="single-freelance row">
-                            <div class="col-md-2">
-                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
-                            </div>
-                            <div class="col-md-6 freelancer-info">
-                                <p class="lead">Hello This is my Biographie</p>
-                                <div class="info">
-                                      <i class="ion-ios-navigate-outline"></i>
-                                       <span> Agadir, Morocco </span>
-                                </div>
-                                <div class="info">
-                                    <i class="ion-ios-star-outline"></i>
-                                    <span>Rating 4.5/5 </span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Hire now</a>
-                                    </button>
-                            </div>
-                        </div>  
-                        <div class="single-freelance row">
-                            <div class="col-md-2">
-                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
-                            </div>
-                            <div class="col-md-6 freelancer-info">
-                                <p class="lead">Hello This is my Biographie</p>
-                                <div class="info">
-                                      <i class="ion-ios-navigate-outline"></i>
-                                       <span> Agadir, Morocco </span>
-                                </div>
-                                <div class="info">
-                                    <i class="ion-ios-star-outline"></i>
-                                    <span>Rating 4.5/5 </span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Hire now</a>
-                                    </button>
-                            </div>
-                        </div>
-                        <div class="single-freelance row">
-                            <div class="col-md-2">
-                               <img src="{{asset('img/user.jpg')}}" class="img-fluid freelance-img" alt="">                               
-                            </div>
-                            <div class="col-md-6 freelancer-info">
-                                <p class="lead">Hello This is my Biographie</p>
-                                <div class="info">
-                                      <i class="ion-ios-navigate-outline"></i>
-                                       <span> Agadir, Morocco </span>
-                                </div>
-                                <div class="info">
-                                    <i class="ion-ios-star-outline"></i>
-                                    <span>Rating 4.5/5 </span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Hire now</a>
-                                    </button>
-                            </div>
-                        </div>
+                        @endforeach
                       
                    </div>
                 </div>
                 <div class="col-6 feature-freelance" style="background-image:url('{{asset('img/freelancer.jpg')}}')">
                     <h4>
-                        <span>Our featured freelancers</span>
-                        <button class="d-block bttn-slant bttn-lg bttn-warning bttn-no-outline">
-                            <a href="">See More</a>
-                        </button>
+                        <span>NOS MEILLEURE FREELANCERS</span>
+                            <a class="d-block btn btn-amber">Voir plus</a>
                     </h4>
                 </div>
             </div>
@@ -273,5 +125,6 @@
     </section>
 @endsection
 @section('js')
-	<script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{mix('js/typed.js')}}"></script>
 @endsection

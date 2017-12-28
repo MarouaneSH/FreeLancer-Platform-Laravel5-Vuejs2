@@ -62,5 +62,5 @@ Route::prefix('missions')->group(function () {
 
 //Route profile user
 Route::prefix('profile')->group(function () {
-    Route::get('/{id}',"ProfileController@index")->name('profile');
+    Route::get('/{id?}',"ProfileController@index")->name('profile');
 });
