@@ -64,10 +64,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $list_users = User::get();
-        $user= User::find(1);
-        $user->name ='sdsd';
-        $user->save();
 
         return User::create([
             'nom' => $data['Nom'],

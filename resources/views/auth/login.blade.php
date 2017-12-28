@@ -20,7 +20,7 @@
              </div>
             <div class="col-8 signup" id="app">
              <div class="row text-right justify-content-end p-3">
-                <p >vous avez pas un compte ? <a href="{{url('signup')}}">créez votre compte gratuit</a> </p>
+                <p >vous avez pas un compte ? <a href="{{url('Signup')}}">créez votre compte gratuit</a> </p>
             </div>   
             <div class="signup-wrapper mt-5">
                     @if($errors->any())

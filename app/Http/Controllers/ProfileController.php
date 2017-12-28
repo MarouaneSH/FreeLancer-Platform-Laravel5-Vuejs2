@@ -11,12 +11,14 @@ use View;
 class ProfileController extends Controller
 {
     public function __construct(){
-     $this->middleware('auth');
     }
 
-    public function index(){
+    public function index($idUser){
+
         //Utilisateur connecté
-        $AuthUser =Auth::user();
+        $AuthUser= DB::table("users")
+                    ->where('id',$idUser)
+                    ->first();
 
         //Récupérer le nombre des missions réalisé par cet utilisateur
          $userProject = DB::table('MISSION_USERS')
@@ -47,6 +49,7 @@ class ProfileController extends Controller
 
         //Afficher la page profile
         return view('profile.index',[
+            "user"=>$AuthUser,
             "projectRealiser"=> $userProject,
             "userRating" => $userRating,
             "userSkill" => $userSkill,
@@ -251,5 +254,27 @@ class ProfileController extends Controller
                  ]);
             }
         }
+    }
+
+
+    public function devisPage(){
+        $missions = DB::table('missions')
+            ->where('mission_owner',"=",Auth::user()->id)
+            ->get();
+
+        $listeDevis = array();
+        foreach($missions as $mission){
+            $devis = DB::table('devis')
+                    ->where('mission_id' , '=' , $mission->mission_id)
+                    ->first();
+            if($devis){
+                array_push($listeDevis,$devis);
+            }
+        }
+
+        
+        return view("profile.devis",[
+            "listeDevis"=>$listeDevis
+        ]);
     }
 }

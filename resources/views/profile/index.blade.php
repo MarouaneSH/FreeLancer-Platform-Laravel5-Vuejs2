@@ -10,14 +10,20 @@
 	@include('layout.navbar')
 
 	<div class="container">
+		
 		<div class="row justify-content-end mt-5 mb-3 pr-3 btn-route">
-			<button id="btn-addMision" class="bttn-fill bttn-md bttn-primary bttn-no-outline mr-1">
-					<a href="{{route('modifyProfile')}}">AJOUTER UNE  MISSION</a>	
-			</button>
-			<button id="btn-modify" class="bttn-fill bttn-md bttn-primary bttn-no-outline">
-					<a href="{{route('modifyProfile')}}">MODIFIER VOTRE PROFILE</a>	
-			</button>
+			@if(Auth::check())
+			     @if(Auth::user()->id == $user->id)
+					<a href="{{route('addMission')}}">
+						<button type="button" class="btn btn-secondary">AJOUTER UNE  MISSION</button>
+					</a>
+					<a href="{{route('modifyProfile')}}">
+							<button type="button" class="btn btn-default">MODIFIER VOTRE PROFILE</button>
+					</a>
+				@endif
+			@endif
 		</div>
+		
 		<div class="profil-wrapper row ">
 			<div class="col-4">
 				<div class="user-info card p-2">
@@ -26,7 +32,7 @@
 					</h4>
 					<div class="top-user-info">
 						<div class="img-user mx-auto" style="background-image:url('{{asset('img/unknown.png')}}')"></div>
-						<h4>{{Auth::user()->nom. ' ' .Auth::user()->prenom }} </h4>
+						<h4>{{$user->nom. ' ' .$user->prenom }} </h4>
 					</div>
 					<div class="bottom-user-info">
 						<div class="row align-items-center">

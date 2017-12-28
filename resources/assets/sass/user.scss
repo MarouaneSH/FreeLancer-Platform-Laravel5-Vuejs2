@@ -1,0 +1,15 @@
+@import "app";
+@import "layout/navbar";
+
+.user-img{
+    background-image: url(img/unknown.png);
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-size: contain;
+    border-radius: 100%;
+    background-position: center;
+}
+
+
+@import "layout/footer"

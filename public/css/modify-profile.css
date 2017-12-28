@@ -22,32 +22,6 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown),html.swal2-show
   font-weight: bold;
 }
 
-.loading {
-  background: black;
-  position: fixed;
-  bottom: 50px;
-  padding: 0;
-  right: 0px;
-  z-index: 9999;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  padding: 0 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: white;
-  display: none;
-}
-
-.loading h4 {
-  font-size: 15px;
-  margin-top: 5px;
-  margin-left: 20px;
-}
-
 .user-info .form-control {
   border: none;
   border-bottom: solid 2px #00bfa5;

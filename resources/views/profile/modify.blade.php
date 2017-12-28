@@ -10,9 +10,11 @@
  	@include('layout.navbar')
 		<div class="container">
 			<div class="row justify-content-end mt-5 mb-3 pr-3 btn-route">
-				<button id="btn-modify" class="bttn-fill bttn-md bttn-primary bttn-no-outline">
-					<a href="{{url('profile')}}">Voir votre profile</a>
-				</button>
+					<a href="{{url('profile')}}">
+						<button type="button" id="btn-modify" class="btn btn-default">
+								Voir votre profile
+						</button>
+			    	</a>
 			</div>
 			<div class="profil-wrapper row ">
 				<div class="col-4">
@@ -43,7 +45,7 @@
 											<strong>Specialité</strong>
 										</p>
 										<p>
-											<input type="text" value="{{$user->specialite}}" placeholder="Votre specialité" class="form-control" name="specialite" placeholder="Votre spécialité">
+											<input type="text" value="{{Auth::user()->specialite}}" placeholder="Votre specialité" class="form-control" name="specialite" placeholder="Votre spécialité">
 										</p>
 									</div>
 								</div>
@@ -56,7 +58,7 @@
 											<strong>Location</strong>
 										</p>
 										<p>
-											<input type="text" value="{{$user->location}}" placeholder="Votre location" class="form-control" name="location" placeholder="Votre location">
+											<input type="text" value="{{Auth::user()->location}}" placeholder="Votre location" class="form-control" name="location" placeholder="Votre location">
 										</p>
 									</div>
 								</div>
@@ -94,7 +96,7 @@
 									</div>
 								</div>
 								<div class="row justify-content-end">
-									<button value="userInfo" class="btnModify bttn-fill bttn-md bttn-primary bttn-no-outline">
+									<button value="userInfo" class="btnModify btn btn-default">
 										Enregistrer
 									</button>
 								</div>
@@ -111,7 +113,7 @@
 							<div class="col-12 bio-skill">
 								<div class="bio">
 									<i class="ion-md-quote"></i>
-									<span id="biographie">{{$user->biographie}}</span>
+									<span id="biographie">{{Auth::user()->biographie}}</span>
 									<i class="ion-md-quote"></i>
 									<span value="biographie" class="badge badge-light-modify" data-toggle="modal" data-target="#editbiographie">Modifier</span>
 								</div>
@@ -157,9 +159,10 @@
 			</div>
 		</div>
 
-
-		<!-- Modal Edit biographie-->
-		<div class="modal fade" id="editbiographie" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+		
+			<!-- Modal Edit biographie-->
+		
+			<div class="modal fade" id="editbiographie" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -171,7 +174,10 @@
 					<form id="modifyBiographie">
 						<div class="modal-body">
 							<div class="container-fluid">
-								<textarea name="biographie" cols="30" rows="5" class="form-control">{{$user->biographie}}</textarea>
+									<div class="form-group basic-textarea rounded-corners purple-border">
+											<label for="exampleFormControlTextarea4">Modifier votre biographie</label>
+											<textarea class="form-control" name="biographie" id="exampleFormControlTextarea4" rows="6">{{Auth::user()->biographie}}</textarea>
+										</div>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -214,7 +220,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title" id="modelTitleId">ajouter un diplôme</h4>
+						<h4 class="modal-title" id="modelTitleId">Ajouter un diplôme</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -238,19 +244,6 @@
 					</form>
 				</div>
 			</div>
-		</div>
-
-
-		<div class="loading">
-			<svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-infinity"
-			style="background: none;">
-				<path fill="none" d="M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z"
-				stroke="#ffff" stroke-width="2" stroke-dasharray="2.5658892822265624 2.5658892822265624">
-					<animate attributeName="stroke-dashoffset" calcMode="linear" values="0;256.58892822265625" keyTimes="0;1" dur="0.2" begin="0s"
-					repeatCount="indefinite"></animate>
-				</path>
-			</svg>
-			<h4>Chargement....</h4>
 		</div>
 
 @endsection

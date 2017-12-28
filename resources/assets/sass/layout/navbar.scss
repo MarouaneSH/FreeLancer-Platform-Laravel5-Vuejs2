@@ -1,6 +1,7 @@
 .navbar{
     padding: 20px 40px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    height:auto;
     .nav-link{
         color: black;
         font-weight: bold;
@@ -20,10 +21,16 @@
         background-size: cover;
         background-position: center;
     }
-    button{
+    .dropdown-button{
         background: white;
         border: none;
-        color: black;
+        color: black !important;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        i{
+            margin-left: 6px;
+        }
         &:focus{
             outline: 0;
         }

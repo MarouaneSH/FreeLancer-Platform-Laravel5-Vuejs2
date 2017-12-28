@@ -1,6 +1,9 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@font-face {
+	font-family: "Montserrat";
+    src: url("fonts/Montesrat/Montserrat-Light.ttf") format("ttf")
+}
 
 // Variables
 @import "variables";
@@ -13,15 +16,56 @@
 @import "node_modules/ionicons/dist/scss/ionicons";
 
 @import "~mdbootstrap/sass/mdb.scss";
+@import "~materialize-css/dist/css/materialize.min.css";
 
 *{
-    font-family: $font-family-sans-serif;
+    font-family: "Montserrat";
+    font-weight: lighter;
 }
 a:hover{
     color: inherit;
     text-decoration: unset;
 }
+.nav-link{
+    font-weight: normal !important;
+}
+.btn{
+    font-weight: lighter;
+}
 body
 {
     background-color: #f6f9fc;
+}
+.loading{
+    background: black;
+    position: fixed;
+    bottom: 50px;
+    padding: 0;
+    right: 0px;
+    z-index: 9999;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+    display: none;
+    h4{
+        font-size: 15px;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+}
+
+.modal {
+    background: none;
+    border: none;
+    box-shadow:none;
+}
+span.badge{
+    background: #38a0e4;
+    font-weight: lighter;
+    margin: 0;
+    float: none;
+    color: white;
 }

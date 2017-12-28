@@ -12,7 +12,7 @@ try {
     window.$ = window.jQuery = require('jquery');
     window.Popper = require('popper.js').default;
     require('bootstrap');
-    require ("~mdbootstrap/js/mdb.min.js");
+    require('materialize-css/dist/js/materialize.min.js');
 } catch (e) {}
 
 /**

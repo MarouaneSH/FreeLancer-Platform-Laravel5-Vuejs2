@@ -1,6 +1,37 @@
 @import "app";
 @import "layout/navbar";
+@import "~sweetalert2/dist/sweetalert2.min.css";
 
+.mission-critere{
+    color: white;
+}
+.select-wrapper input.select-dropdown{
+    border-bottom: 1px solid #fff;
+}
+.mission-type{
+    i{
+        font-size: 30px;
+    }
+}
+.mission-critere{
+    .thumb{
+        background: white !important;
+        .value{
+            color: black !important;
+        }
+    }
+}
 
-
+.mission-info{
+    div{
+        display: flex;
+        align-items: center;
+        i{
+            margin-left: 20px;
+            font-size: 30px;
+            margin-right: 5px;
+        }
+    }
+     
+}
 @import "layout/footer";

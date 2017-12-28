@@ -24,9 +24,8 @@
         }
     }
 }
-.btnModify {
-    font-size: 15px !important;
-}
+
+
 .card-title
 {
     color: #798fa5;
@@ -88,13 +87,6 @@
                 font-size: 15px;
             }
         }
-
-        .skills{
-            .badge{
-                background: #38a0e4;
-                font-weight: normal;
-            }
-        }
     }
     .diploma {
         margin-top: 30px;
@@ -111,6 +103,7 @@
                 position: absolute;
                 left: 67px;
                 top: 14px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
             }
         }
         p{
@@ -136,8 +129,9 @@
                 background: #1d89ff;
                 border-radius: 100%;
                 position: absolute;
-                left: -30px;
+                left: -29px;
                 top: 12px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
             }
         }
     }
