@@ -22,6 +22,10 @@
     }
 }
 
+input[name=range]{
+    border: none !important;
+}
+
 .mission-info{
     div{
         display: flex;

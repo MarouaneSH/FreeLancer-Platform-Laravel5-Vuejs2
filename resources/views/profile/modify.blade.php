@@ -21,12 +21,16 @@
 					{{-- form modiy user information --}}
 					<form action="{{route('modifyProfile')}}" id="formUserinfo" method="POST">
 						{{ csrf_field() }}
-						<div class="user-info card p-2">
+						<div class="user-info card p-2 pt-4">
 							<h4 class="card-title ml-0">
 								Information
 							</h4>
 							<div class="top-user-info">
-								<div class="img-user mx-auto" style="background-image:url('{{asset('img/unknown.png')}}')"></div>
+								<div class="img-user mx-auto" style="background-image:url('{{url(Auth::user()->image)}}')">
+								</div>
+								<div class="modify-img text-center">
+									<span class="badge teal btnModify" value="ImgProfile" data-toggle="modal" data-target="#editImgModal">Modifier</span>
+								</div>
 								<h4>
 									<p for="">Nom : </p>
 									<input type="text" value="{{Auth::user()->nom}}" placeholder="Votre nom" class="form-control" name="nom">
@@ -127,7 +131,7 @@
 									<h6>
 										<i class="ion-logo-buffer"></i>
 										<strong>SKILLS</strong>
-										<span value="skills" class="badge badge-light-modify" data-toggle="modal" data-target="#addModalSKILLS">AJOUTER</span>
+										<span value="skills" class="badge badge-light-modify" data-toggle="modal" data-target="#addModalSKILLS">Ajouter</span>
 									</h6>
 									<div class="list-skills">
 										@if($userSkill->count())
@@ -145,7 +149,7 @@
 					<div class="diploma card">
 						<h6 class="card-title ml-4">
 							Diplome
-							<span value="diplome" class="badge badge-light-modify" data-toggle="modal" data-target="#addModalDiploma">AJOUTER</span>
+							<span value="diplome" class="badge badge-light-modify" data-toggle="modal" data-target="#addModalDiploma">Ajouter</span>
 						</h6>
 						<div class="list-diplom">
 							@if($userDiploma->count())
@@ -165,7 +169,7 @@
 										</div>
 								@endforeach
 							@else
-								<h5 class="text-muted text-center">Vous n'avez aucun diplome</h5>
+								<h5 class="text-muted text-center noDiplom">Vous n'avez aucun diplome</h5>
 					    	 @endif
 						</div>
 					</div>
@@ -173,6 +177,39 @@
 			</div>
 		</div>
 
+		<!-- Modal Edit biographie-->
+		
+		<div class="modal fade" id="editImgModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="modelTitleId">Modifier votre Image</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form id="modifyImage" enctype="multipart/form-data">
+							<div class="modal-body">
+								<div class="container-fluid">
+									<div class="file-field input-field">
+										<div class="btn py-0 px-3">
+											<span>Image : </span>
+											<input type="file" name="Image" id="imgProfile">
+										</div>
+										<div class="file-path-wrapper">
+											<input class="file-path validate" type="text">
+										</div>
+									</div>	
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+								<button type="button" value="ImgProfile" class="btnModify ml-1 btn btn-primary">Enregistrer</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		
 			<!-- Modal Edit biographie-->
 		
@@ -196,7 +233,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-							<button type="button" value="biographie" class="btnModify btn btn-primary">Enregistrer</button>
+							<button type="button" value="biographie" class="btnModify ml-1 btn btn-primary">Enregistrer</button>
 						</div>
 					</form>
 				</div>
@@ -222,7 +259,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-							<button type="button" value="skills" class="btnModify btn btn-primary">Enregistrer</button>
+							<button type="button" value="skills" class="btnModify ml-1 btn btn-primary">Enregistrer</button>
 						</div>
 					</form>
 				</div>
@@ -253,7 +290,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-							<button type="button" value="diplome" class="btnModify btn btn-primary">Enregistrer</button>
+							<button type="button" value="diplome" class="btnModify ml-1 btn btn-primary">Enregistrer</button>
 						</div>
 					</form>
 				</div>

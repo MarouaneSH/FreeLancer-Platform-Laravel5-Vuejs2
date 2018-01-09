@@ -8,22 +8,25 @@ use DB;
 use Storage;
 use Validator;
 use View;
+
+
 class ProfileController extends Controller
 {
     public function __construct(){
     }
 
     public function index($idUser =null){
-
         if($idUser){
             $AuthUser= DB::table("users")
                     ->where('id',$idUser)
                     ->first();
         }
-        else{
+        else if (Auth::check()){
             $AuthUser=Auth::user();
         }
-        
+        else{
+            return redirect("/Signup");
+        }
         //Récupérer le nombre des missions réalisé par cet utilisateur
          $userProject = DB::table('MISSION_USERS')
                         ->where('USER_ID',$AuthUser->id)
@@ -257,6 +260,26 @@ class ProfileController extends Controller
                      "success"=> true,
                  ]);
             }
+        }
+        else if ($data =='ImageProfile')
+        {
+            if ($request->hasFile('Image')) {
+               $imgUrl =   $request->Image->store('public/images');
+               $imgUrl = str_replace_first('public','storage',$imgUrl);
+             DB::table("users")
+                            ->where('id','=',Auth::user()->id)
+                            ->update([
+                                "image"=> $imgUrl
+                            ]);
+                            
+                return response()->json([
+                    "success"=> true,
+                ]);
+            }
+
+            return response()->json([
+                "success"=> false,
+            ]);
         }
     }
 

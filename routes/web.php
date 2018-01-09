@@ -51,12 +51,14 @@ Route::middleware(['auth'])->group(function(){
 Route::prefix('missions')->group(function () {
     Route::get('/',"MissionController@index")->name('mission');
     Route::get('/-{id}' ,"MissionController@singleMissionPage")->name('singleMission');
+    Route::get('/search' ,"MissionController@searchMission")->name('searchMission');
 });
 
 //Users Route
         Route::prefix('users')->group(function () {
             Route::get('/',"userController@index")->name('users');
-            Route::get('/{id}',"ProfileController@index")->name('userProfile');
+            Route::get('/-{id}',"ProfileController@index")->name('userProfile');
+            Route::post('/addRating',"userController@adduserRating")->name('addRating');
         });
 
 

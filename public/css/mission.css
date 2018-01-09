@@ -25201,6 +25201,10 @@ span.badge {
   color: black !important;
 }
 
+input[name=range] {
+  border: none !important;
+}
+
 .mission-info div {
   display: -webkit-box;
   display: -ms-flexbox;

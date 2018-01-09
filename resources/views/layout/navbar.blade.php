@@ -1,4 +1,4 @@
-{{--  {{dd($user)}}  --}}
+
 <nav class="navbar navbar-expand-sm bg-white">
             <a class="navbar-brand" href="{{url('/')}} ">
                 <img src="{{asset('img/logo-bl.png')}} " alt="Logo" style="width:240px;">
@@ -17,7 +17,7 @@
             </ul>
             <div class="user-info">
                 @if(Auth::check())
-                    <div class="img-profile" style="background-image:url('{{asset('img/unknown.png')}}')"></div>
+                    <div class="img-profile" style="background-image:url('{{url(Auth::user()->image)}}')"></div>
                     <div class="dropdown">
                             <a class='dropdown-button' href='#' data-activates='userInfo'> 
                                 {{Auth::user()->nom. ' ' .Auth::user()->prenom }}

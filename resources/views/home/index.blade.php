@@ -12,7 +12,7 @@
             @include('home/background')
             <nav class="top-menu">
                 <ul>
-                    <li><a href="">Login</a> </li>
+                    <li><a href="{{url('login')}}">Login</a> </li>
                     <li><a href="">Sign up</a></li>
                     <li><a href="">How it works ?</a> </li>
                 </ul>
@@ -105,7 +105,7 @@
                             </div>
                             <div class="col-md-4">
                                 <button class="bttn-material-flat bttn-sm bttn-default bttn-no-outline">
-                                        <a href="">Voir Profile</a>
+                                        <a href="{{url('profile/'.$user->id)}}">Voir Profile</a>
                                     </button>
                             </div>
                         </div>

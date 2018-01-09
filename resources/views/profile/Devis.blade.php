@@ -41,6 +41,7 @@
                                         <td>{{$devis->tel}} </td>
                                         <td>{{$devis->prix_demander}} </td>
                                         <td>{{$devis->commentaires}} </td>
+                                        
                                     </tr>
                                @endforeach
                             </tbody>

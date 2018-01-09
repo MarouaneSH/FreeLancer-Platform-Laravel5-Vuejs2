@@ -32,6 +32,45 @@ class MissionController extends Controller
         ]);
     }
 
+    public function searchMission(Request $req){
+        $query = array();
+        if($req->has('minBudget')){
+            $query[] = ["min_budget",">=",$req->minBudget];
+        }
+        
+       if($req->has('maxBudget')){
+            $query[] = ["max_budget","<=",$req->maxBudget];
+        }
+
+        if($req->has('categorie')){
+           $categorie = DB::table("categories")->where('categorie_name','=',$req->categorie)->first();
+           $query[] = ["categorie_id","=",$categorie->categorie_id];
+        }
+
+        if(!$req->distance || !$req->place)
+        {
+            if($req->distance){
+                $query[] = ["type_mission","=","distance"];
+            }
+            else {
+                $query[] = ["type_mission","=","Sur Place"];
+            }
+        }
+        
+        $mission = DB::table('missions')
+                            ->where($query)
+                            ->orderby('mission_id','DESC')
+                            ->get();
+        
+        $listeCategorie = DB::table('categories')
+                         ->select('categorie_name')
+                         ->get();
+        return view('missions.index',[
+            "categories" => $listeCategorie,
+            "missions" => $mission,
+        ]);
+    }
+
     public function singleMissionPage($id){
        
         $listeMission = DB::table('missions')

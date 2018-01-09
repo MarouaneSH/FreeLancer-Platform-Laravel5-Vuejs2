@@ -26,12 +26,12 @@
 		
 		<div class="profil-wrapper row ">
 			<div class="col-4">
-				<div class="user-info card p-2">
+				<div class="user-info card p-4">
 					<h4 class="card-title ml-0">
 						Information
 					</h4>
 					<div class="top-user-info">
-						<div class="img-user mx-auto" style="background-image:url('{{asset('img/unknown.png')}}')"></div>
+						<div class="img-user mx-auto" style="background-image:url('{{url($user->image)}}')"></div>
 						<h4>{{$user->nom. ' ' .$user->prenom }} </h4>
 					</div>
 					<div class="bottom-user-info">
@@ -61,8 +61,8 @@
 									<strong>Location</strong>
 								</p>
 								<p>
-									@isset ($user->ville)
-											{{$user->ville}} , {{$user->pays}}
+									@isset ($user->location)
+											{{$user->location}}
 									@else
 									     Location inconnu	                
 									@endisset

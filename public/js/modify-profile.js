@@ -9,10 +9,12 @@ btnmodify.forEach((el)=>{
     el.onclick = function(event){
          event.preventDefault();
          var dataToModify = event.target.value;
+         console.log(dataToModify);
          if(dataToModify == "userInfo") modifyUserinfo();
          else if (dataToModify == "biographie") modifyUserBiographie();
          else if (dataToModify == "skills") addUserSkill();
          else if (dataToModify == "diplome") addUserDiplome();
+         else if (dataToModify == "ImgProfile") modifyImg();
     }
 });
 
@@ -62,7 +64,11 @@ function modifyUserBiographie(){
 function addUserSkill(){
     //remove badge aucun Skill if exist
     var badgeNotSkill = document.querySelector(".badge-notSkill");
-    badgeNotSkill.remove();
+
+    if(badgeNotSkill){
+        badgeNotSkill.remove();
+    }
+
     var fomUserinfo = document.querySelector('#addSkillsForm');
     var formData  = new FormData(fomUserinfo);
     $loading.style.display = "flex";
@@ -73,7 +79,7 @@ function addUserSkill(){
             displaySuccess("Success");
             const skill = formData.get('skillName');
             document.getElementsByClassName('list-skills')[0].innerHTML += 
-            `<span class="badge badge-default"> ${skill} </span>`;
+            `<span class="badge badge-default mr-1"> ${skill} </span>`;
         }
         else{
             displatError();
@@ -84,6 +90,11 @@ function addUserSkill(){
 }
 
 function addUserDiplome(){
+    //remove no diplome
+    var noDiplom = document.querySelector(".noDiplom");
+    if(noDiplom){
+        noDiplom.remove();
+    }
     var fomUserinfo = document.querySelector('#addDiplomForm');
     var formData  = new FormData(fomUserinfo);
     $loading.style.display = "flex";
@@ -121,6 +132,39 @@ function addUserDiplome(){
 }
 
 
+function changeImageProfile(formdata) {
+    var imgDiv = document.querySelector('.img-user');
+    var imgReader = new FileReader();
+    imgReader.readAsDataURL(formdata.get('Image'));
+    imgReader.onload = (e)=>{
+        imgDiv.style.backgroundImage = `url('${e.target.result}')`;
+    }
+    
+}
+
+
+function modifyImg(){
+    var formModifyImage = document.querySelector('#modifyImage');
+    var formData  = new FormData(formModifyImage);
+    $loading.style.display = "flex";
+    axios.post('/profile/modify/ImageProfile',formData,{
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+    }).then(function(resultat){
+        if(resultat.data.success){
+            changeImageProfile(formData);
+            displaySuccess("Success");
+        }
+        else{
+            displatError();
+        }
+    }).catch((error) => {
+        displatError();
+    })
+}
+
+
 
 function displaySuccess(message){
     $loading.style.display = "none";
@@ -140,3 +184,5 @@ function displatError(){
         'error'
       )
 }
+
+

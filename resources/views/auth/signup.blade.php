@@ -35,27 +35,27 @@
                     <h2 >Créer un compte</h2>
                     <form action="{{url('Signup')}}" method="post">
                     {{ csrf_field() }}
-                        <div class="form-group">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="Votre email">
+                        <div class="input-field">
+                            <input id="email" name="email" type="text" class="validate" >
+                            <label for="last_name">Email</label>
                         </div>
-                        <div class="form-group">
-                            <label for="">Nom</label>
-                            <input type="text" class="form-control" name="Nom" id="" aria-describedby="emailHelpId" placeholder="Votre Nom">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Prenom</label>
-                            <input type="text" class="form-control" name="Prenom" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Password</label>
-                            <input type="password" class="form-control" name="password" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Repeat Password</label>
-                            <input type="password" class="form-control" name="password_confirmation" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
-                        </div>
-                        <div class="form-group text-center">
+                        <div class="input-field">
+                                <input id="nom" name="Nom" type="text" class="validate">
+                                <label for="nom">Nom</label>
+                         </div>
+                         <div class="input-field">
+                                <input id="Prenom" name="Prenom" type="text" class="validate">
+                                <label for="Prenom">Prenom</label>
+                         </div>
+                         <div class="input-field">
+                                <input id="password" name="password"  type="password" class="validate">
+                                <label for="password">Password</label>
+                         </div>
+                         <div class="input-field">
+                                <input id="password_confirmationNom" name="password_confirmation" type="password" class="validate">
+                                <label for="password_confirmationNom">Repeat Password</label>
+                         </div>
+                        <div class="input-field text-center">
                            <button class="btn-next bttn-pill bttn-md bttn-primary bttn-no-outline">Sign up</button>
                         </div>
                     </form>

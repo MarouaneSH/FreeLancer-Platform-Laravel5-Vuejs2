@@ -14,53 +14,55 @@
             <div class="row">
                 <div class="mission-critere col-4">
                     <div class="card-panel teal">
-                        <h5>
-                            <i class="ion-md-analytics"></i>
-                            Recherche Avancée
-                        </h5>
-                        <select>
-                                <option value="" disabled selected>Categories</option>
-                            @foreach ($categories as $categorie)
-                                <option value="{{$categorie->categorie_name}} ">{{$categorie->categorie_name}} </option>
-                            @endforeach
-                        </select>
-                        <div class="mission-type row">
-                            <div class="col-6 text-center">
-                                <i class="ion-ios-cloud"></i>
-                                <h6>Distance</h6>
-                                <div class="switch">
-                                    <label>
-                                    <input type="checkbox" checked>
-                                    <span class="lever white"></span>
-                                    </label>
+                            <h5>
+                                <i class="ion-md-analytics"></i>
+                                Recherche Avancée
+                            </h5>
+                            <form id="formSearch" action="{{route('searchMission')}}" >
+                                <select name="categorie" >
+                                        <option disabled selected>Categories</option>
+                                    @foreach ($categories as $categorie)
+                                        <option value="{{$categorie->categorie_name}} ">{{$categorie->categorie_name}}</option>
+                                    @endforeach
+                                </select>
+                                <div class="mission-type row">
+                                    <div class="col-6 text-center">
+                                        <i class="ion-ios-cloud"></i>
+                                        <h6>Distance</h6>
+                                        <div class="switch">
+                                            <label>
+                                            <input type="checkbox" name="distance" checked>
+                                            <span class="lever white"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <i class="ion-ios-navigate"></i>
+                                        <h6>Sur place</h6>
+                                        <div class="switch">
+                                            <label>
+                                            <input type="checkbox"  name="place" checked>
+                                            <span class="lever white"></span>
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6 text-center">
-                                <i class="ion-ios-navigate"></i>
-                                <h6>Sur place</h6>
-                                <div class="switch">
-                                    <label>
-                                    <input type="checkbox" checked>
-                                    <span class="lever white"></span>
-                                    </label>
+                                <div class="range">
+                                    <h6>Min Budget (DH)</h6>
+                                        <p class="range-field">
+                                            <input type="range" value="0" id="test5" name="minbudget" min="0" max="10000" style="border:none"/>
+                                        </p>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="range">
-                               <h6>Min Budget (DH)</h6>
-                                <p class="range-field">
-                                    <input type="range" id="test5" name="minbudget" min="0" max="1000" />
-                                 </p>
-                        </div>
-                        <div class="range">
-                                <h6>Max Budget (DH)</h6>
-                                 <p class="range-field">
-                                     <input type="range" name="maxbudget" id="test5" min="0" max="1000" />
-                                  </p>
-                         </div>
-                         <div class="d-flex justify-content-end">
-                                <a class="waves-effect waves-light btn">Chercher</a>
-                         </div>
+                                <div class="range">
+                                        <h6>Max Budget (DH)</h6>
+                                        <p class="range-field">
+                                            <input type="range" value="10000" name="maxbudget" id="test5" min="0" max="10000" style="border:none"/>
+                                        </p>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                        <button type="submit" class="waves-effect waves-light btn">Chercher</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="mission-critere col-8">
@@ -132,6 +134,7 @@
         <script src="{{asset('js/app.js')}}"></script>
         <script src="{{asset('js/mdb.js')}}"></script>
         <script src="{{asset('js/sweetalert2.min.js')}}"></script>
+        <script src="{{asset('js/mission.js')}}"></script>
         <script>
                 $(document).ready(function() {
                     $('select').material_select();

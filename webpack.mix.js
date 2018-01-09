@@ -16,6 +16,7 @@ mix.sass('resources/assets/sass/modify-profile.scss', 'public/css/')
     .sass('resources/assets/sass/home.scss', 'public/css/') 
     .sass('resources/assets/sass/mission.scss', 'public/css/') 
     .sass('resources/assets/sass/user.scss', 'public/css')
+    .sass('resources/assets/sass/login.scss', 'public/css')
     .js('resources/assets/js/app.js', 'public/js/')
     .js('resources/assets/js/typed.js', 'public/js/')
     .options({

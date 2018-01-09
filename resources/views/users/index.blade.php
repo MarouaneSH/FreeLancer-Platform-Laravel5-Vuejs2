@@ -2,7 +2,8 @@
 
 @section('title','Freelancer Profile')
 @section('style')
-	<link rel="stylesheet" href="{{mix('css/user.css')}} ">
+    <link rel="stylesheet" href="{{mix('css/user.css')}} ">
+    <link rel="stylesheet" href="{{asset('css/rating.min.css')}} ">
 @endsection
 
 
@@ -39,8 +40,9 @@
                  </div>
              </div>
             </div>
-            <div class="card-action text-right">
-                <a href="#" class="teal-text">Visit profile</a>
+            <div class="card-action text-right d-flex justify-content-end">              
+                <div class="my-rating mr-3" data-userId="{{$user->id}}" ></div>
+                <a href="{{url('profile/'.$user->id)}} " class="teal-text">Visit profile</a>
             </div>
         </div>
       @endforeach
@@ -49,4 +51,50 @@
 
  @section('js')
         <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/rating.min.js')}} "></script>
+        <script src="{{asset('js/sweetalert2.min.js')}}"></script>
+        <script>
+            var $loading = document.querySelector('.loading');
+            $(".my-rating").starRating({
+                starSize: 25,
+                callback: function(currentRating, $el){
+                    $userId = $el.data('userid');
+                    $rating = currentRating;
+                    $loading.style.display = "flex";
+                    axios.post('users/addRating',{
+                        user : $userId ,
+                        rating  :$rating ,
+                    }).then(function(resultat){
+                        if(resultat.data.success){
+                            displaySuccess("Success");
+                        }
+                        else{
+                            displatError();
+                        }
+                    }).catch((error) => {
+                        displatError();
+                    })
+                }
+            });
+
+
+            function displaySuccess(message){
+                $loading.style.display = "none";
+                swal(
+                    `${message}`,
+                    '',
+                    'success'
+                  );
+            }
+            
+            
+            function displatError(){
+                $loading.style.display = "none";
+                swal(
+                    'Oops...',
+                    'Something went wrong!',
+                    'error'
+                  )
+            }
+        </script>
 @endsection

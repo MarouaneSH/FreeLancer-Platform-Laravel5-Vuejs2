@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="password" class="form-control" name="password" id="" aria-describedby="emailHelpId" placeholder="Votre Prenom">
+                            <input type="password" class="form-control" name="password" id="" aria-describedby="emailHelpId" placeholder="Votre Mot de passe">
                         </div>
                         <div class="form-group text-center">
                            <button class="btn-next bttn-pill bttn-md bttn-primary bttn-no-outline">Login</button>
