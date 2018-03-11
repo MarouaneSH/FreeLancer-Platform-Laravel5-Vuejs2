@@ -32,7 +32,7 @@
 					</h4>
 					<div class="top-user-info">
 						<div class="img-user mx-auto" style="background-image:url('{{url($user->image)}}')"></div>
-						<h4>{{$user->nom. ' ' .$user->prenom }} </h4>
+						<h4>{{$user->Nom. ' ' .$user->Prenom }} </h4>
 					</div>
 					<div class="bottom-user-info">
 						<div class="row align-items-center">
@@ -44,8 +44,8 @@
 									<strong>Specialité</strong>
 								</p>
 								<p>
-									@isset ($user->specialite)
-											{{$user->specialite}}
+									@isset ($user->Specialite)
+											{{$user->Specialite}}
 									@else
 									     Spécialité inconnu	                
 									@endisset

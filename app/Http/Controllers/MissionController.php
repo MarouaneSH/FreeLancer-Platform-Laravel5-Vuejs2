@@ -154,6 +154,7 @@ class MissionController extends Controller
                               ->take(1)
                               ->get();
 
+                
                  //inserrer SKILLS
              if($request->skills){
                 foreach($request->skills as $skillName){
@@ -163,9 +164,11 @@ class MissionController extends Controller
                                 ->where('skill_name' , '=' , $skillName)
                                 ->get();
                     
+                         
                     //Si la competence n'exist pas , creer un competence
-                    if($skill->count() == 0 ){
-                            $insertSkill= DB::table('SKILLS')
+                    if($skill->count() == 0 ){   
+                            if($skillName){
+                                $insertSkill= DB::table('SKILLS')
                                             ->insert([
                                                 'skill_name' => $skillName, 
                                             ]);
@@ -175,6 +178,7 @@ class MissionController extends Controller
                                         ->where('skill_name', '=' , $skillName)
                                         ->get();
                                 $skillID = $skillID[0]->skill_id;
+                            }
                                                         
                     }
                     else {

@@ -33,9 +33,9 @@
 								</div>
 								<h4>
 									<p for="">Nom : </p>
-									<input type="text" value="{{Auth::user()->nom}}" placeholder="Votre nom" class="form-control" name="nom">
+									<input type="text" value="{{Auth::user()->Nom}}" placeholder="Votre nom" class="form-control" name="nom">
 									<p for="">Prenom : </p>
-									<input type="text" value="{{Auth::user()->prenom}}" placeholder="Votre prenom" class="form-control" name="prenom">
+									<input type="text" value="{{Auth::user()->Prenom}}" placeholder="Votre prenom" class="form-control" name="prenom">
 								</h4>
 							</div>
 							<div class="bottom-user-info">
@@ -49,7 +49,7 @@
 											<strong>Specialité</strong>
 										</p>
 										<p>
-											<input type="text" value="{{Auth::user()->specialite}}" placeholder="Votre specialité" class="form-control" name="specialite" placeholder="Votre spécialité">
+											<input type="text" value="{{Auth::user()->Specialite}}" placeholder="Votre specialité" class="form-control" name="specialite" placeholder="Votre spécialité">
 										</p>
 									</div>
 								</div>
@@ -134,9 +134,10 @@
 										<span value="skills" class="badge badge-light-modify" data-toggle="modal" data-target="#addModalSKILLS">Ajouter</span>
 									</h6>
 									<div class="list-skills">
+										
 										@if($userSkill->count())
 											@foreach ($userSkill as $skill)
-												<span class="badge badge-default"> {{$skill->skill_name}} </span>
+													<span class="badge badge-default"> {{$skill->SKILL_NAME}} </span>
 											@endforeach
 										@else
 											<span class="badge blue-grey badge-notSkill h6">Ajouter une compétence a votre profile</span>

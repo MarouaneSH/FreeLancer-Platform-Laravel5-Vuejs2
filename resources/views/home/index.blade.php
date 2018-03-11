@@ -13,7 +13,7 @@
             <nav class="top-menu">
                 <ul>
                     <li><a href="{{url('login')}}">Login</a> </li>
-                    <li><a href="">Sign up</a></li>
+                    <li><a href="{{url('Signup')}}">Sign up</a></li>
                     <li><a href="">How it works ?</a> </li>
                 </ul>
             </nav>

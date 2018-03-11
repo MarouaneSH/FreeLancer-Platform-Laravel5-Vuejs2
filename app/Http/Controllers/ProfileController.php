@@ -45,7 +45,7 @@ class ProfileController extends Controller
          $userSkill = DB::table('USER_SKILLS')
                     ->join('SKILLS', 'USER_SKILLS.SKILL_ID', '=' , 'SKILLS.SKILL_ID')
                     ->where('USER_SKILLS.USER_ID',$AuthUser->id)
-                    ->select('SKILLS.SKILL_NAME')
+                    ->select('SKILLS.skill_name')
                     ->get();
 
         //Récupérer les diplomes de cet utilisateur

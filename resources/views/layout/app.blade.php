@@ -15,7 +15,9 @@
 		<footer>
 			<div class="container">
 				<div class="top-footer row">
-					<h4 class="logo">Freelancer.com</h4>
+					<h4 class="logo">
+					<img src="{{asset('img/logo-ft.png')}}" width="220px" alt="">
+					</h4>
 				</div>
 				<div class="bottom-footer row">
 					<div class="col-8 footer-nav">
